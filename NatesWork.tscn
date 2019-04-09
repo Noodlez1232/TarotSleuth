@@ -8,6 +8,7 @@
 [node name="CardSystem" type="Node" parent="." index="0"]
 
 script = ExtResource( 1 )
+cardsDir = "res:///Cards/"
 
 [node name="CommandSystem" type="Node" parent="." index="1"]
 

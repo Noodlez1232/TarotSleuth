@@ -1,18 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MainGameData.gd" type="Script" id=1]
-[ext_resource path="res://NatesWork.tscn" type="PackedScene" id=2]
+[ext_resource path="res://CharacterSheet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NatesWork.tscn" type="PackedScene" id=3]
 
 [node name="GameRoot" type="Node"]
 
 script = ExtResource( 1 )
 currently_drawn_cards = null
+current_character = null
 command_phase = null
 lives_remaining = null
 cards_have_been_drawn = null
 
-[node name="CharacterData" type="Node" parent="." index="0"]
+[node name="CharacterInfo" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="NateRoot" parent="." index="1" instance=ExtResource( 2 )]
+[node name="NateRoot" parent="." index="1" instance=ExtResource( 3 )]
 
 

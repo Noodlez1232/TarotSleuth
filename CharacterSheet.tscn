@@ -10,7 +10,7 @@ name = "Character Template"
 blurb = "Character Blurb"
 hand = null
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 resource = null
