@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "The Chariot"
-info = "A card"
+info = "Control, willpower, success, action, determination."
 id = 14
 

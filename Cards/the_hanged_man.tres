@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "The Hanged Man"
-info = "A card"
+info = "Pause, surrender, letting go, new perspectives."
 id = 3
 

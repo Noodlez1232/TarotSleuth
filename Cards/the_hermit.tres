@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "The Hermit"
-info = "A card"
+info = "Soul-searching, introspection, being alone, inner guidance"
 id = 1
 

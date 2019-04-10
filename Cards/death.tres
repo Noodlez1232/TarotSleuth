@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 name = "Death"
-info = "A card"
+info = "Endings, change, transformation, transition"
 id = 11
 
