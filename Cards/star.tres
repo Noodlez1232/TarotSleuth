@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "The Hanged Man"
-info = "Pause, surrender, letting go, new perspectives."
-id = 3
+name = "The Star"
+info = "Hope, faith, purpose, renewal, spirituality"
+id = 7
 

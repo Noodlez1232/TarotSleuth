@@ -3,8 +3,8 @@
 [ext_resource path="res://CardData.gd" type="Script" id=1]
 
 [resource]
-
 script = ExtResource( 1 )
 name = "The Hermit"
+info = "Soul-searching, introspection, being alone, inner guidance"
 id = 1
 
