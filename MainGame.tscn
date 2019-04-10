@@ -5,16 +5,9 @@
 [ext_resource path="res://NatesWork.tscn" type="PackedScene" id=3]
 
 [node name="GameRoot" type="Node"]
-
 script = ExtResource( 1 )
-currently_drawn_cards = null
-current_character = null
-command_phase = null
-lives_remaining = null
-cards_have_been_drawn = null
 
-[node name="CharacterInfo" parent="." index="0" instance=ExtResource( 2 )]
+[node name="CharacterInfo" parent="." instance=ExtResource( 2 )]
 
-[node name="NateRoot" parent="." index="1" instance=ExtResource( 3 )]
-
+[node name="NateRoot" parent="." instance=ExtResource( 3 )]
 

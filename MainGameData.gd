@@ -1,24 +1,10 @@
 extends Node
 
-enum CommandPhase {
-	MAIN = 0,
-	GUESS = 1,
-	CHARACTERS = 2,
-	INFO = 3,
-	DISCARD = 4,
-	DRAW = 5
-}
+var currently_drawn_cards: Array;
 
-export(Array) var currently_drawn_cards;
+var guilty_character: int;
 
-export(Resource) var current_character;
+var current_characters: Array;
 
-export(CommandPhase) var command_phase;
-
-export(int) var lives_remaining;
-export(int) var cards_have_been_drawn;
-
-
-
-func discard():
-	pass;
+var lives_remaining: int;
+var cards_have_been_drawn: int;

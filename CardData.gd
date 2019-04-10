@@ -1,5 +1,8 @@
 extends Resource;
 
-export(String) var name = "";
-export(Texture) var card_sprite;
-export(int) var id = 0;
+class_name Card
+
+export var name: String = "";
+export var info: String = "A card";
+export var card_sprite: Texture;
+export var id: int = 0;
