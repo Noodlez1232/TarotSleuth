@@ -3,9 +3,9 @@
 [ext_resource path="res://CharacterSheet.gd" type="Script" id=1]
 
 [resource]
-
 script = ExtResource( 1 )
 name = "Natasha Sampson"
-blurb = "Character Blurb"
-hand = null
+blurb = " Travelling dancer with a free spirit and nurturing disposition. Captures the hearts of all those she meets but doesn’t keep attachments. May use whoever she needs to climb to the top."
+hand = PoolIntArray(  )
+id = 1
 

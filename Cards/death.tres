@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "The Magician"
+name = "Death"
 info = "A card"
-id = 0
+id = 11
 
