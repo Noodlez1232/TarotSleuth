@@ -9,12 +9,8 @@ help: Shows this message""";
 
 # Stubbing an output function
 func print_to_textbox(string: String) -> void:
-	debug_print_to_textbox(string)
+	get_tree().root.get_node("GameRoot/PlayerUI").set_text(string);
 	return;
-
-# Used for debug purposes
-func debug_print_to_textbox(string: String) -> void:
-	get_node("TestStuff/TestOutput").text = string;
 
 # Processes the command given
 func process_command(command: String) -> void:

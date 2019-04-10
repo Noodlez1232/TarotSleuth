@@ -19,6 +19,7 @@ func _on_Button_pressed() -> void:
 script = ExtResource( 1 )
 
 [node name="CommandSystem" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="TestStuff" type="Node" parent="CommandSystem"]

@@ -1,6 +1,6 @@
 extends Node
 
-var cards = Array();
+var cards: Array = Array();
 
 const CARDS_DIR: String = "res:///Cards/";
 
@@ -31,9 +31,9 @@ func get_random_card() -> int:
 	return char_cards[randi() % char_cards]
 	
 func get_character_cards() -> PoolIntArray:
-	return PoolIntArray([0,1,2,3,4]);
+	return get_tree().root.get_node("GameRoot").get_guilty_char().hand;
 	
 # Returns a boolean on whether it succeeds or fails
 func discard_card(cardno: int):
-	var drawn_cards = get_tree().root.get("GameRoot").currently_drawn_cards();
+	var drawn_cards = get_tree().root.get_node("GameRoot").currently_drawn_cards();
 	

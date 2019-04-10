@@ -1,147 +1,96 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://BG.png" type="Texture" id=1]
+[ext_resource path="res://Assets/BG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Yellowtail-Regular.ttf" type="DynamicFontData" id=2]
 
+[sub_resource type="GDScript" id=2]
+script/source = "extends Control
+
+
+
+func start_game():
+	get_tree().change_scene(\"res://MainGame.tscn\");
+
+func how_to_play():
+	get_tree().change_scene(\"res://HowToPlay.tscn\");
+
+func exit():
+	get_tree().quit();
+"
+
 [sub_resource type="DynamicFont" id=1]
-
-size = 173
-use_mipmaps = true
-use_filter = true
+size = 90
 font_data = ExtResource( 2 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
-
-size = 103
-use_mipmaps = false
-use_filter = false
+[sub_resource type="DynamicFont" id=3]
+size = 70
 font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Main Menu" type="Node2D" index="0"]
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.39166
+margin_top = -2.39166
+margin_right = -2.3916
+margin_bottom = -2.3916
+script = SubResource( 2 )
 
-position = Vector2( 0, -33 )
-
-[node name="BG" type="Sprite" parent="." index="0"]
-
-position = Vector2( 962.08, 574.527 )
-scale = Vector2( 0.999949, 0.997188 )
+[node name="BG" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
 
-[node name="Text" type="Node2D" parent="." index="1"]
+[node name="MainContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
 
-[node name="Label" type="Label" parent="Text" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1.0
-margin_top = 270.0
-margin_right = 1920.0
-margin_bottom = 492.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
+[node name="Title" type="Label" parent="MainContainer"]
+margin_top = 150.0
+margin_right = 1280.0
+margin_bottom = 266.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.421875, 0.0444946, 0.0627919, 1 )
-text = "T A R O T   S L E U T H "
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tarot Sleuth"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = 0.846154
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Buttons" type="Node2D" parent="." index="2"]
-
-[node name="Button" type="Button" parent="Buttons" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 662.0
-margin_top = 544.0
-margin_right = 1256.0
-margin_bottom = 702.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.419608, 0.0431373, 0.0627451, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "P l a y"
+[node name="Play" type="Button" parent="MainContainer"]
+margin_left = 571.0
+margin_top = 270.0
+margin_right = 708.0
+margin_bottom = 367.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
 flat = true
-align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Button2" type="Button" parent="Buttons" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 662.0
-margin_top = 694.0
-margin_right = 1256.0
-margin_bottom = 852.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.419608, 0.0431373, 0.0627451, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "How to Play"
+[node name="HowToPlay" type="Button" parent="MainContainer"]
+margin_left = 464.0
+margin_top = 371.0
+margin_right = 815.0
+margin_bottom = 468.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "How To Play"
 flat = true
-align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Button3" type="Button" parent="Buttons" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 650.0
-margin_top = 827.0
-margin_right = 1244.0
-margin_bottom = 985.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.419608, 0.0431373, 0.0627451, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Q u i t"
+[node name="Exit" type="Button" parent="MainContainer"]
+margin_left = 584.0
+margin_top = 472.0
+margin_right = 695.0
+margin_bottom = 569.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Exit"
 flat = true
-align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-
+[connection signal="pressed" from="MainContainer/Play" to="." method="start_game"]
+[connection signal="pressed" from="MainContainer/HowToPlay" to="." method="how_to_play"]
+[connection signal="pressed" from="MainContainer/Exit" to="." method="exit"]

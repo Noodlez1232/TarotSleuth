@@ -6,6 +6,13 @@ var guilty_character: int = 0;
 
 const CHARDIR: String = "res:///Characters/";
 
+func _ready():
+	randomize();
+	load_characters();
+	pick_random_characters();
+	# Picks the guilty character
+	numb();
+	
 func load_characters() -> void:
 	# Load all the characters
 	var dir: Directory = Directory.new();
@@ -23,13 +30,16 @@ func load_characters() -> void:
 		printerr("Could not open the cards directory!");
 		get_tree().quit();
 
-func _ready():
-#using this to decide who's guilty to start with
-	randomize();
-	load_characters();
-	numb();
-	pass
+func pick_random_characters():
+	# There's a better way to do this, but this is what I'm doing now because it's what I thought of
+	var ids: Array = range(0, characters.size());
+	ids.shuffle();
+	ids.resize(4);
+	# Pull the characters into the main data array
+	get_tree().root.get_node("GameRoot").current_characters = Array();
+	for id in ids:
+		get_tree().root.get_node("GameRoot").current_characters.append(characters[id]);
+# Picks the guilty character
 func numb():
-	var x = 0;
-	x = randi() % 4 + 0;
-	print(x);
+	var guilty_id = randi() % 4;
+	get_tree().root.get_node("GameRoot").guilty_id = guilty_id;
