@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 name = "William Yates"
 blurb = "Got his start on Wall Street as an intern, then promoted to a highly fiscal stockbroker. His overnight success inspires many but sparks the envy of others. Paranoid that his wealth will be stripped away"
-hand = PoolIntArray(  )
+hand = PoolIntArray( 1, 2, 3 )
 id = 0
 

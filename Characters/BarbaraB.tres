@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 name = "Barbara Brewer"
 blurb = "A no-nonsense police officer freshly transferred from the unsavory part of the city. Her placement heads a strict new regime for the force. Willing to get her job done by any means necessary."
-hand = PoolIntArray(  )
+hand = PoolIntArray( 9, 10, 11 )
 id = 3
 

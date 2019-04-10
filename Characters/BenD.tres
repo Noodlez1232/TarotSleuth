@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 name = "Benjamin Dover"
 blurb = "Teacher at the local Catholic school. Believes the youth are the key to a bright future. Easygoing, but his passion for his faith knows no bounds."
-hand = PoolIntArray(  )
+hand = PoolIntArray( 1, 8, 14 )
 id = 2
 

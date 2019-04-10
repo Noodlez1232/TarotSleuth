@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 name = "Natasha Sampson"
 blurb = " Travelling dancer with a free spirit and nurturing disposition. Captures the hearts of all those she meets but doesn’t keep attachments. May use whoever she needs to climb to the top."
-hand = PoolIntArray(  )
+hand = PoolIntArray( 12, 13, 14 )
 id = 1
 

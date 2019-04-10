@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 name = "Clyde Sears"
 blurb = " A single father, dealt a shoddy hand in life. Rose through the ranks of the military while earning several medals for his service. Will risk anything to protect his loved ones."
-hand = PoolIntArray(  )
+hand = PoolIntArray( 4, 5, 6 )
 id = 4
 
