@@ -36,10 +36,10 @@ func pick_random_characters():
 	ids.shuffle();
 	ids.resize(4);
 	# Pull the characters into the main data array
-	get_tree().root.get_node("GameRoot").current_characters = Array();
+	get_node("..").current_characters = Array();
 	for id in ids:
-		get_tree().root.get_node("GameRoot").current_characters.append(characters[id]);
+		get_node("..").current_characters.append(characters[id]);
 # Picks the guilty character
 func numb():
 	var guilty_id = randi() % 4;
-	get_tree().root.get_node("GameRoot").guilty_id = guilty_id;
+	get_node("..").guilty_id = guilty_id;

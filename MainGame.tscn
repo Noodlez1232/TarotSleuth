@@ -1,23 +1,117 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://MainGameData.gd" type="Script" id=1]
-[ext_resource path="res://CardSystem.gd" type="Script" id=2]
-[ext_resource path="res://CommandSystem.gd" type="Script" id=3]
-[ext_resource path="res://PlayerUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://CharacterSystem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CharacterSystem.gd" type="Script" id=2]
+[ext_resource path="res://CardSystem.gd" type="Script" id=3]
+[ext_resource path="res://CommandSystem.gd" type="Script" id=4]
+[ext_resource path="res://Assets/tarot sleuth frame 1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/tarot sleuth frame 2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/tarot sleuth frame 3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/BG.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Yellowtail-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/UbuntuMono-Regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+func command_entered(new_text):
+	get_tree().root.get_node(\"GameRoot/CommandSystem\").process_command(new_text);
+	get_node(\"MainContainer/CommandLine\").text = \"\";
+
+func set_text(string: String) -> void:
+	var txt: String = get_node(\"MainContainer/CommandOutput\").text;
+	txt += \"\\n\" + string;
+	var lines: PoolStringArray = txt.split('\\n');
+	lines.invert();
+	lines.resize(10);
+	lines.invert();
+	get_node(\"MainContainer/CommandOutput\").text = lines.join(\"\\n\");
+
+func remove_card(cardname: String) -> void:
+	set_text(cardname + \" has been discarded\");
+
+func add_card(cardname: String) -> void:
+	set_text(\"The man deals you \" + cardname);"
+
+[sub_resource type="Animation" id=2]
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/Detective:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.36, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 10 )
 
 [node name="GameRoot" type="Node"]
 script = ExtResource( 1 )
 
-[node name="CardSystem" type="Node" parent="."]
+[node name="CharacterSystem" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="CommandSystem" type="Node" parent="."]
+[node name="CardSystem" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="PlayerUI" parent="." instance=ExtResource( 4 )]
+[node name="CommandSystem" type="Node" parent="."]
+script = ExtResource( 4 )
 
-[node name="CharacterInfo" parent="." instance=ExtResource( 5 )]
+[node name="PlayerUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
 
-[node name="CharacterSystem" parent="." instance=ExtResource( 5 )]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerUI"]
+"anims/Draw Card" = SubResource( 2 )
 
+[node name="BG" type="TextureRect" parent="PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="Detective" type="TextureRect" parent="PlayerUI/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 14
+size_flags_vertical = 14
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="MainContainer" type="VBoxContainer" parent="PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 2
+
+[node name="CommandOutput" type="Label" parent="PlayerUI/MainContainer"]
+margin_top = 592.0
+margin_right = 1280.0
+margin_bottom = 675.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "We've got a criminal on the loose and you've gotta crack the case.
+I'll give you 3 cards, and you gotta figure out which one did it. If you need help, just say \"help\"."
+autowrap = true
+
+[node name="CommandLine" type="LineEdit" parent="PlayerUI/MainContainer"]
+margin_top = 679.0
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_fonts/font = SubResource( 3 )
+
+[connection signal="text_entered" from="PlayerUI/MainContainer/CommandLine" to="PlayerUI" method="command_entered"]

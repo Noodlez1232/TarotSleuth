@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/BG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Yellowtail-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
 
@@ -18,7 +18,7 @@ func exit():
 	get_tree().quit();
 "
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 90
 font_data = ExtResource( 2 )
 
@@ -33,7 +33,7 @@ margin_left = -2.39166
 margin_top = -2.39166
 margin_right = -2.3916
 margin_bottom = -2.3916
-script = SubResource( 2 )
+script = SubResource( 1 )
 
 [node name="BG" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -48,10 +48,10 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="Title" type="Label" parent="MainContainer"]
-margin_top = 150.0
+margin_top = 201.0
 margin_right = 1280.0
-margin_bottom = 266.0
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 317.0
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Tarot Sleuth"
 align = 1
@@ -60,31 +60,20 @@ uppercase = true
 
 [node name="Play" type="Button" parent="MainContainer"]
 margin_left = 571.0
-margin_top = 270.0
+margin_top = 321.0
 margin_right = 708.0
-margin_bottom = 367.0
+margin_bottom = 418.0
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Play"
 flat = true
 
-[node name="HowToPlay" type="Button" parent="MainContainer"]
-margin_left = 464.0
-margin_top = 371.0
-margin_right = 815.0
-margin_bottom = 468.0
-size_flags_horizontal = 6
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "How To Play"
-flat = true
-
 [node name="Exit" type="Button" parent="MainContainer"]
 margin_left = 584.0
-margin_top = 472.0
+margin_top = 422.0
 margin_right = 695.0
-margin_bottom = 569.0
+margin_bottom = 519.0
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -92,5 +81,4 @@ text = "Exit"
 flat = true
 
 [connection signal="pressed" from="MainContainer/Play" to="." method="start_game"]
-[connection signal="pressed" from="MainContainer/HowToPlay" to="." method="how_to_play"]
 [connection signal="pressed" from="MainContainer/Exit" to="." method="exit"]
